@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinChat"
+             x:Class="XamarinChat.MainPage">
+
+    <StackLayout  >
+        <!-- Place new controls here -->
+        <StackLayout Orientation="Horizontal" Margin="20,80,20,0">
+            <Label 
+                x:Name="label"
+                Text="Login" 
+                FontSize="28"
+                TextColor="Black"
+                HorizontalOptions="Start"
+                VerticalOptions="CenterAndExpand" />
+            <Entry 
+                x:Name="entry"
+                FontSize="28"
+                HorizontalOptions="EndAndExpand"            
+                TextColor="Gray" 
+                VerticalOptions="CenterAndExpand"
+                Text="Enter Text"/>
+        </StackLayout>
+
+        <StackLayout Margin="0,160">
+            <Button Text="Click"
+                FontSize="26"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked" />
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
