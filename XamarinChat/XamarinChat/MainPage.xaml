@@ -20,11 +20,11 @@
                 HorizontalOptions="EndAndExpand"            
                 TextColor="Gray" 
                 VerticalOptions="CenterAndExpand"
-                Text="Enter Text"/>
+                Placeholder="Enter Text"/>
         </StackLayout>
 
         <StackLayout Margin="0,160">
-            <Button Text="Click"
+            <Button Text="Enter"
                 FontSize="26"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"

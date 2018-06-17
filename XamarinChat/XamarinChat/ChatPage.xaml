@@ -5,8 +5,82 @@
              x:Class="XamarinChat.ChatPage">
 
     <StackLayout  >
-        <!-- Place new controls here -->
-        
-        
-    </StackLayout>
+        <!-- Place new controls here
+        <StackLayout Orientation="Horizontal" Margin="20,20,20,0">
+            <Label 
+                x:Name="chat_name"
+                Text="name" 
+                FontSize="18"
+                TextColor="Black"
+                HorizontalOptions="Start"
+                VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
+            <Label 
+                x:Name="chat_text"
+                Text="texttexttext" 
+                FontSize="14"
+                TextColor="Black"
+                HorizontalOptions="Start"
+                VerticalOptions="CenterAndExpand" />
+            
+        </StackLayout> 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:MyDataTemplateSelector x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+            <!--Messages in Row 0 -->
+            <ListView 
+			x:Name="MessagesListView" 		
+			HasUnevenRows="True"             
+			SeparatorVisibility="None" />
+
+      
+
+
+
+         <!-- Text editing block -->
+         <StackLayout  Orientation="Horizontal" Grid.Row="3" Padding="5" VerticalOptions="End">
+                
+               <Entry 
+                WidthRequest="300"
+                x:Name="entry1"
+                FontSize="20"                 
+                HorizontalOptions="StartAndExpand"            
+                TextColor="Black" 
+                VerticalOptions="EndAndExpand"
+                Placeholder="Enter Text"
+                />
+             
+                <Button 
+             
+                Text=""
+                FontSize="20"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                Clicked="OnButtonClicked">
+                        <Button.Image 
+                    Aspect="AspectFit">
+                            <OnPlatform x:TypeArguments="FileImageSource"                     
+                        Android="arrow.png"
+                        WinPhone="Assets/arrow.png" />
+                        </Button.Image>
+                        
+                    </Button>
+             
+          </StackLayout>
+          
+        </Grid>
+    </StackLayout> 
+
+    
 </ContentPage>

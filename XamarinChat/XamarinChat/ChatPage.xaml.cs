@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace XamarinChat
 {
     [JsonObject(MemberSerialization.Fields)]
-    class MemberData
+    public class MemberData
     {
         [JsonProperty("name")]
         public string Name;
@@ -21,12 +21,13 @@ namespace XamarinChat
         public string Password;
     }
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatPage : ContentPage
     {
         private Scaledrone _scaledrone;
-        private const string RoomName = "observable-room";
 
+
+
+        private const string RoomName = "observable-room";
         public ChatPage (string nickname)
 		{
             InitializeComponent();
@@ -35,14 +36,23 @@ namespace XamarinChat
             _scaledrone.OnOpened += Scaledrone_OnOpened;
             _scaledrone.OnRoomMessage += Scaledrone_OnRoomMessage;
             _scaledrone.Connect();
-
-            //TODO move to send button click
-            _scaledrone.Publish(RoomName, "some fancy message");
+            IncomingViewCell incomingViewCell = new IncomingViewCell();
         }
+
+        void OnButtonClicked(object sender, EventArgs args)
+        {
+            _scaledrone.Publish(RoomName, entry1.Text);
+        }
+        
 
         private void Scaledrone_OnRoomMessage(Room room, Newtonsoft.Json.Linq.JToken message, Member member)
         {
+            entry1 = new Entry { Placeholder = "Write more text", Text = "" };
+            //TODO add to view
         }
+
+
+
 
         private void Scaledrone_OnOpened()
         {
