@@ -36,19 +36,23 @@ namespace XamarinChat
             _scaledrone.OnOpened += Scaledrone_OnOpened;
             _scaledrone.OnRoomMessage += Scaledrone_OnRoomMessage;
             _scaledrone.Connect();
-            IncomingViewCell incomingViewCell = new IncomingViewCell();
+           
         }
-
+        
         void OnButtonClicked(object sender, EventArgs args)
         {
             _scaledrone.Publish(RoomName, entry1.Text);
+            entry1.Placeholder = "Write more text";
+            entry1.Text = "";
         }
         
 
         private void Scaledrone_OnRoomMessage(Room room, Newtonsoft.Json.Linq.JToken message, Member member)
         {
-            entry1 = new Entry { Placeholder = "Write more text", Text = "" };
-            //TODO add to view
+            Message msg = new Message();
+            msg.MessageText = message.ToString();
+            msg.MemberData = member.ClientData.ToObject<MemberData>();
+            msg.IsMyMessage = member.Id == _scaledrone.ClientId;
         }
 
 

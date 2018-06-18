@@ -17,8 +17,8 @@
             <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#03A9F4">
 
                 <StackLayout>
-                    <Image IsVisible="{Binding HasAttachement}" HeightRequest="175" WidthRequest="175" Source="{Binding AttachementUrl}" />
-                    <Label TextColor="White" Text="{Binding Text}" />
+                    <Label  x:Name="messageText" TextColor="White" Text="{Binding Text}"/>
+                    <Label x:Name="nickname" TextColor="Grey" Font="14" Text="{Binding Name}" />
                 </StackLayout>
             </Frame>
         </Grid>

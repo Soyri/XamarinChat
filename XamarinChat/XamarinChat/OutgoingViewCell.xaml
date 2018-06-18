@@ -16,8 +16,9 @@
 
             <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#03A9F4">
 
-                <StackLayout>                    
-                    <Label TextColor="White" Text="{Binding Text}" />
+                <StackLayout>
+                    <Label  x:Name="messageText" TextColor="White" Text="{Binding Text}"/>
+                    <Label x:Name="nickname" TextColor="Grey" Font="14" Text="{Binding Name}" />
                 </StackLayout>
             </Frame>
         </Grid>
