@@ -3,6 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XamarinChat"
              x:Class="XamarinChat.ChatPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:MyDataTemplateSelector x:Key="MyDataTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout  >
         <!-- Place new controls here
@@ -24,12 +29,8 @@
                 HorizontalOptions="Start"
                 VerticalOptions="CenterAndExpand" />
             
-        </StackLayout> 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:MyDataTemplateSelector x:Key="MessageTemplateSelector"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>-->
+        </StackLayout> -->
+ 
 
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
@@ -40,7 +41,9 @@
 
             <!--Messages in Row 0 -->
             <ListView 
-			x:Name="MessagesListView" 		
+            x:Name="MessagesListView" 
+            ItemTemplate="{StaticResource MyDataTemplateSelector}" 
+			ItemsSource="{Binding _messages}" 			
 			HasUnevenRows="True"             
 			SeparatorVisibility="None" />
 

@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using ScaledroneDotNET;
+﻿using ScaledroneDotNET;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,21 +10,11 @@ using Xamarin.Forms.Xaml;
 
 namespace XamarinChat
 {
-    [JsonObject(MemberSerialization.Fields)]
-    public class MemberData
-    {
-        [JsonProperty("name")]
-        public string Name;
-        [JsonProperty("color")]
-        public string Color;
-        [JsonProperty("password")]
-        public string Password;
-    }
 
     public partial class ChatPage : ContentPage
     {
         private Scaledrone _scaledrone;
-
+        private ObservableCollection<Message> _messages;
 
 
         private const string RoomName = "observable-room";
@@ -36,7 +26,10 @@ namespace XamarinChat
             _scaledrone.OnOpened += Scaledrone_OnOpened;
             _scaledrone.OnRoomMessage += Scaledrone_OnRoomMessage;
             _scaledrone.Connect();
-           
+            _messages = new ObservableCollection<Message>();
+            MessagesListView.ItemTemplate =new MyDataTemplateSelector();
+            MessagesListView.ItemsSource = _messages;
+
         }
         
         void OnButtonClicked(object sender, EventArgs args)
@@ -52,7 +45,8 @@ namespace XamarinChat
             Message msg = new Message();
             msg.MessageText = message.ToString();
             msg.MemberData = member.ClientData.ToObject<MemberData>();
-            msg.IsMyMessage = member.Id == _scaledrone.ClientId;
+            msg.IsMyMessage = member.Id == _scaledrone.ClientId; 
+            _messages.Add(msg);
         }
 
 

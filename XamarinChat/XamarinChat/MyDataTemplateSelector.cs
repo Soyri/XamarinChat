@@ -19,7 +19,7 @@ namespace XamarinChat
             var messageVm = item as Message;
             if (messageVm == null)
                 return null;
-            return messageVm.IsIncoming ? this.incomingDataTemplate : this.outgoingDataTemplate;
+            return messageVm.IsMyMessage ? this.incomingDataTemplate : this.outgoingDataTemplate;
         }
 
         private readonly DataTemplate incomingDataTemplate;
