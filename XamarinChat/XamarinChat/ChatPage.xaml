@@ -3,11 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XamarinChat"
              x:Class="XamarinChat.ChatPage">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:MyDataTemplateSelector x:Key="MyDataTemplateSelector"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
 
     <StackLayout  >
         <!-- Place new controls here
@@ -29,32 +24,34 @@
                 HorizontalOptions="Start"
                 VerticalOptions="CenterAndExpand" />
             
-        </StackLayout> -->
- 
+        </StackLayout> 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:MyDataTemplateSelector x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
 
-    <Grid RowSpacing="0" ColumnSpacing="0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
 
             <!--Messages in Row 0 -->
             <ListView 
-            x:Name="MessagesListView" 
-            ItemTemplate="{StaticResource MyDataTemplateSelector}" 
-			ItemsSource="{Binding _messages}" 			
+			x:Name="MessagesListView" 		
 			HasUnevenRows="True"             
 			SeparatorVisibility="None" />
 
-      
 
 
 
-         <!-- Text editing block -->
-         <StackLayout  Orientation="Horizontal" Grid.Row="3" Padding="5" VerticalOptions="End">
-                
-               <Entry 
+
+            <!-- Text editing block -->
+            <StackLayout  Orientation="Horizontal" Grid.Row="3" Padding="5" VerticalOptions="End">
+
+                <Entry 
                 WidthRequest="300"
                 x:Name="entry1"
                 FontSize="20"                 
@@ -63,7 +60,7 @@
                 VerticalOptions="EndAndExpand"
                 Placeholder="Enter Text"
                 />
-             
+
                 <Button 
              
                 Text=""
@@ -71,19 +68,19 @@
                 VerticalOptions="End"
                 HorizontalOptions="End"
                 Clicked="OnButtonClicked">
-                        <Button.Image 
+                    <Button.Image 
                     Aspect="AspectFit">
-                            <OnPlatform x:TypeArguments="FileImageSource"                     
+                        <OnPlatform x:TypeArguments="FileImageSource"                     
                         Android="arrow.png"
                         WinPhone="Assets/arrow.png" />
-                        </Button.Image>
-                        
-                    </Button>
-             
-          </StackLayout>
-          
-        </Grid>
-    </StackLayout> 
+                    </Button.Image>
 
-    
+                </Button>
+
+            </StackLayout>
+
+        </Grid>
+    </StackLayout>
+
+
 </ContentPage>

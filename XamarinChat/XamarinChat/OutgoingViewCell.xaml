@@ -18,7 +18,7 @@
 
                 <StackLayout>
                     <Label  x:Name="messageText" TextColor="White" Text="{Binding MessageText}"/>
-                    <Label x:Name="nickname" TextColor="#c2dfed" Font="14" Text="{Binding MemberData.Name}" />
+                    <Label x:Name="nickname" TextColor="#c2dfed" Font="14" Text="{Binding Abracadabra}"/>
                 </StackLayout>
             </Frame>
         </Grid>
