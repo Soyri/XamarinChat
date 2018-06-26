@@ -1,23 +1,29 @@
 ﻿using ScaledroneDotNET;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace XamarinChat
 {
 
     public partial class ChatPage : ContentPage
+    
     {
+
         private Scaledrone _scaledrone;
         private ObservableCollection<Message> _messages;
-
+     
 
         private const string RoomName = "observable-room";
+        //private readonly BindingBase messageBinding;
+
+        public ChatPage()
+        {
+            InitializeComponent();
+            _messages = new ObservableCollection<Message>();
+            MessagesListView.ItemTemplate = new MyDataTemplateSelector();
+            MessagesListView.ItemsSource = _messages;          
+        }
         public ChatPage (string nickname)
 		{
             InitializeComponent();
@@ -29,9 +35,19 @@ namespace XamarinChat
             _messages = new ObservableCollection<Message>();
             MessagesListView.ItemTemplate =new MyDataTemplateSelector();
             MessagesListView.ItemsSource = _messages;
+            OutGoingText = "Ini";
 
         }
-        
+
+        string outgoingText = "Selective";
+
+        public string OutGoingText
+        {
+            get { return outgoingText; }
+            set { SetValue ( outgoingText, value); }
+        }
+
+
         void OnButtonClicked(object sender, EventArgs args)
         {
             _scaledrone.Publish(RoomName, entry1.Text);
@@ -47,6 +63,12 @@ namespace XamarinChat
             msg.MemberData = member.ClientData.ToObject<MemberData>();
             msg.IsMyMessage = member.Id == _scaledrone.ClientId; 
             _messages.Add(msg);
+            
+            //Debug.WriteLine(messageText.Text);
+            var nickname = new Label();
+            nickname.SetBinding(Label.TextProperty, "Name");
+            nickname.BindingContext = new { Name = "John Doe" };
+
         }
 
 

@@ -2,7 +2,7 @@
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinChat.OutgoingViewCell">
-  <ViewCell.View>
+    <ViewCell.View>
         <Grid ColumnSpacing="2" Padding="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"></ColumnDefinition>
@@ -14,11 +14,21 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#03A9F4">
+            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#f2632b">
 
                 <StackLayout>
-                    <Label  x:Name="messageText" TextColor="White" Text="{Binding MessageText}"/>
-                    <Label x:Name="nickname" TextColor="#c2dfed" Font="14" Text="{Binding Abracadabra}"/>
+                    <Label  
+                        x:Name="messageText" 
+                        Font="34" 
+                        TextColor="White" 
+                        BackgroundColor="Black" 
+                        Text="Zerg"/>
+                    <Label 
+                        x:Name="nickname" 
+                        TextColor="#c2dfed" 
+                        BackgroundColor="White" 
+                        Font="34" 
+                        Text="Text"  />
                 </StackLayout>
             </Frame>
         </Grid>

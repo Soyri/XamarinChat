@@ -9,12 +9,18 @@ using Xamarin.Forms.Xaml;
 
 namespace XamarinChat
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class IncomingViewCell : ViewCell
-	{
-		public IncomingViewCell ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class IncomingViewCell : ViewCell
+    {
+        public object messageTextViewProperty;
+
+        public IncomingViewCell()
+        {
+            InitializeComponent();
+        }
+
+        
+
+
+    }   
 }

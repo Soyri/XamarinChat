@@ -1,35 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:XamarinChat"
+             xmlns:local="clr-namespace:XamarinChat"           
              x:Class="XamarinChat.ChatPage">
-
-    <StackLayout  >
-        <!-- Place new controls here
-        <StackLayout Orientation="Horizontal" Margin="20,20,20,0">
-            <Label 
-                x:Name="chat_name"
-                Text="name" 
-                FontSize="18"
-                TextColor="Black"
-                HorizontalOptions="Start"
-                VerticalOptions="CenterAndExpand" />
-            </StackLayout>
-        <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
-            <Label 
-                x:Name="chat_text"
-                Text="texttexttext" 
-                FontSize="14"
-                TextColor="Black"
-                HorizontalOptions="Start"
-                VerticalOptions="CenterAndExpand" />
-            
-        </StackLayout> 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:MyDataTemplateSelector x:Key="MessageTemplateSelector"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>-->
+   
 
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
@@ -40,26 +14,33 @@
 
             <!--Messages in Row 0 -->
             <ListView 
+            VerticalOptions="CenterAndExpand"
 			x:Name="MessagesListView" 		
 			HasUnevenRows="True"             
 			SeparatorVisibility="None" />
 
 
+            <Label  
+                        x:Name="messageText" 
+                        Font="34" 
+                        TextColor="White" 
+                        BackgroundColor="Black"                        
+                        Text="{Binding OutGoingText}"/>
 
 
-
-            <!-- Text editing block -->
-            <StackLayout  Orientation="Horizontal" Grid.Row="3" Padding="5" VerticalOptions="End">
+    <!-- Text editing block -->
+            <StackLayout  Orientation="Horizontal" Grid.Row="1" Padding="3" VerticalOptions="End">
 
                 <Entry 
-                WidthRequest="300"
+                WidthRequest="260"
                 x:Name="entry1"
                 FontSize="20"                 
                 HorizontalOptions="StartAndExpand"            
-                TextColor="Black" 
-                VerticalOptions="EndAndExpand"
+                TextColor="Black"               
                 Placeholder="Enter Text"
                 />
+
+                
 
                 <Button 
              
@@ -80,7 +61,6 @@
             </StackLayout>
 
         </Grid>
-    </StackLayout>
 
-
+    
 </ContentPage>

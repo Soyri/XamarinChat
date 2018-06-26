@@ -14,11 +14,21 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#03A9F4">
+            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#2d008e">
 
                 <StackLayout>
-                    <Label  x:Name="messageText" TextColor="White" Text="{Binding MessageText}"/>
-                    <Label x:Name="nickname" TextColor="#c2dfed" Font="14" Text="{Binding MemberData.Name}" />
+                    <Label  
+                        x:Name="messageText" 
+                        Font="34" 
+                        TextColor="White" 
+                        BackgroundColor="Black" 
+                        Text="{Binding ChatPage.IncomingText}"/>
+                    <Label 
+                        x:Name="nickname" 
+                        TextColor="#c2dfed" 
+                        BackgroundColor="White" 
+                        Font="34" 
+                        Text="{Binding ChatPage.Name}"  />
                 </StackLayout>
             </Frame>
         </Grid>
