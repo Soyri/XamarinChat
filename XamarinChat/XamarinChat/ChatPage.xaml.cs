@@ -15,7 +15,7 @@ namespace XamarinChat
      
 
         private const string RoomName = "observable-room";
-        //private readonly BindingBase messageBinding;
+    
 
         public ChatPage()
         {
@@ -27,7 +27,8 @@ namespace XamarinChat
         public ChatPage (string nickname)
 		{
             InitializeComponent();
-            var mData = new MemberData { Name = nickname, Color = "green" };
+         
+            var mData = new MemberData { Name = nickname, Color = GetRandomColor() };
             _scaledrone = new Scaledrone("ORZLEvNn5v2xcH33", mData);
             _scaledrone.OnOpened += Scaledrone_OnOpened;
             _scaledrone.OnRoomMessage += Scaledrone_OnRoomMessage;
@@ -35,16 +36,18 @@ namespace XamarinChat
             _messages = new ObservableCollection<Message>();
             MessagesListView.ItemTemplate =new MyDataTemplateSelector();
             MessagesListView.ItemsSource = _messages;
-            OutGoingText = "Ini";
+           
 
         }
 
-        string outgoingText = "Selective";
-
-        public string OutGoingText
+        private static string GetRandomColor()
         {
-            get { return outgoingText; }
-            set { SetValue ( outgoingText, value); }
+            string[] colorArray = new[] { "#c2dfed", "#c2c8ed", "#d9c2ed", "#edc2c2", "#ede7c2", "#dcedc2", "#c2edce", "#c2ede6" };
+            Random random = new Random();
+            int randomNumber = random.Next(0, colorArray.Length);
+            String randomColor = colorArray[randomNumber];
+            return randomColor;
+
         }
 
 
@@ -60,14 +63,10 @@ namespace XamarinChat
         {
             Message msg = new Message();
             msg.MessageText = message.ToString();
-            msg.MemberData = member.ClientData.ToObject<MemberData>();
+            msg.Member = member.ClientData.ToObject<MemberData>();
             msg.IsMyMessage = member.Id == _scaledrone.ClientId; 
             _messages.Add(msg);
-            
-            //Debug.WriteLine(messageText.Text);
-            var nickname = new Label();
-            nickname.SetBinding(Label.TextProperty, "Name");
-            nickname.BindingContext = new { Name = "John Doe" };
+     
 
         }
 

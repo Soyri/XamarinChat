@@ -10,8 +10,8 @@ namespace XamarinChat
         public MyDataTemplateSelector()
         {
             // Retain instances!
-            this.incomingDataTemplate = new DataTemplate(typeof(IncomingViewCell));
-            this.outgoingDataTemplate = new DataTemplate(typeof(OutgoingViewCell));
+            incomingDataTemplate = new DataTemplate(typeof(IncomingViewCell));
+            outgoingDataTemplate = new DataTemplate(typeof(OutgoingViewCell));
         }
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
@@ -19,7 +19,7 @@ namespace XamarinChat
             var messageVm = item as Message;
             if (messageVm == null)
                 return null;
-            return messageVm.IsMyMessage ? this.incomingDataTemplate : this.outgoingDataTemplate;
+            return messageVm.IsMyMessage ? incomingDataTemplate : outgoingDataTemplate;
         }
 
         private readonly DataTemplate incomingDataTemplate;

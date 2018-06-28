@@ -3,32 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinChat.OutgoingViewCell">
     <ViewCell.View>
-        <Grid ColumnSpacing="2" Padding="5">
+        <Grid ColumnSpacing="2" Padding="5" >
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="40"></ColumnDefinition>
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
+            </Grid.RowDefinitions>         
 
-            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#f2632b">
+            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="{Binding MessageColor}">
 
-                <StackLayout>
+                <StackLayout >
                     <Label  
                         x:Name="messageText" 
-                        Font="34" 
-                        TextColor="White" 
-                        BackgroundColor="Black" 
-                        Text="Zerg"/>
+                        Font="18" 
+                        TextColor="Black" 
+                        HorizontalTextAlignment="Start"
+                        Text="{Binding MessageText}"/>
                     <Label 
                         x:Name="nickname" 
-                        TextColor="#c2dfed" 
-                        BackgroundColor="White" 
-                        Font="34" 
-                        Text="Text"  />
+                        TextColor="#212b29" 
+                        HorizontalTextAlignment="Start"
+                        Font="15" 
+                        Text="{Binding NickName}"  />
+                    
                 </StackLayout>
             </Frame>
         </Grid>

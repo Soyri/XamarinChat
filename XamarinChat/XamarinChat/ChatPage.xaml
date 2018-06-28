@@ -14,22 +14,15 @@
 
             <!--Messages in Row 0 -->
             <ListView 
-            VerticalOptions="CenterAndExpand"
+            
 			x:Name="MessagesListView" 		
 			HasUnevenRows="True"             
 			SeparatorVisibility="None" />
 
 
-            <Label  
-                        x:Name="messageText" 
-                        Font="34" 
-                        TextColor="White" 
-                        BackgroundColor="Black"                        
-                        Text="{Binding OutGoingText}"/>
-
 
     <!-- Text editing block -->
-            <StackLayout  Orientation="Horizontal" Grid.Row="1" Padding="3" VerticalOptions="End">
+            <StackLayout  Orientation="Horizontal" Grid.Row="1" Padding="3" >
 
                 <Entry 
                 WidthRequest="260"

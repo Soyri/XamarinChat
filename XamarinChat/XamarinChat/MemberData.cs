@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace XamarinChat
 {
@@ -9,5 +10,7 @@ namespace XamarinChat
         public string Name;
         [JsonProperty("color")]
         public string Color;
+
+  
     }
 }
